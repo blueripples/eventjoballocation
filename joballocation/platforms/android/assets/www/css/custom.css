@@ -1,0 +1,264 @@
+/* Login Page Start */
+.ui-mobile-viewport.ui-overlay-a #loginPage,.ui-mobile-viewport.ui-overlay-a #registrationPage,.ui-mobile-viewport.ui-overlay-a #verificationpage,.ui-mobile-viewport.ui-overlay-a #verificationCodepage,.ui-mobile-viewport.ui-overlay-a #forgotPasswordpage{
+background-image: url("../img/05.jpg");
+background-size: cover;
+}
+#loginPage .ui-content .forgot_link{
+    text-align:center;
+    font-size:15px;
+    margin-top:10%;
+    text-shadow:none;
+}
+#loginPage .ui-content .forgot_link a, #loginPage .ui-content .signup_text a {
+  color: #23bff1;
+  font-weight: lighter;
+  text-decoration: none;
+}
+#loginPage .ui-content .signup_text {
+  color: #bfbfbf;
+  font-size: 15px;
+  margin-top: 20%;
+  text-align: center;
+  text-shadow: none;
+}
+.help_text{
+color: #bfbfbf;
+text-shadow: none;
+}
+#loginForm .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,#registrationPage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,#verificationpage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,#verificationCodepage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,#forgotPasswordpage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #afafaf;
+}
+#loginForm .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input,#registrationPage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input, #verificationpage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input,#verificationCodepage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input,#forgotPasswordpage .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input {
+  box-sizing: content-box;
+  color: #ffffff;
+  text-shadow: none;
+}
+#editProfile .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input,#editBio .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset > input{
+	min-height:40px;
+	text-shadow: none;
+}
+#loginForm .ui-btn,#registrationPage .ui-btn,#verificationpage .ui-btn,#verificationCodepage .ui-btn,#forgotPasswordpage .ui-btn,#editProfile #profileSubmit,#editBio #bioSubmit {
+  background-color: #49c0f0;
+  background-image: linear-gradient(to bottom, #49c0f0, #2cafe3);
+  border: 1px solid #15aeec;
+  border-radius: 3px;
+  color: #ffffff;
+  display: inline-block;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  padding: 14px;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+#loginForm .ui-btn:hover,#registrationPage .ui-btn:hover,#verificationpage .ui-btn:hover,#verificationCodepage .ui-btn:hover,#forgotPasswordpage .ui-btn:hover,#editProfile .ui-btn:hover,#editBio #bioSubmit:hover {
+ border:1px solid #1090c3;
+ background-color: #1ab0ec; background-image: -webkit-gradient(linear, left top, left bottom, from(#1ab0ec), to(#1a92c2));
+ background-image: -webkit-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -moz-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -ms-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: -o-linear-gradient(top, #1ab0ec, #1a92c2);
+ background-image: linear-gradient(to bottom, #1ab0ec, #1a92c2);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#1ab0ec, endColorstr=#1a92c2);
+}
+.ui-header.login_icon.ui-bar-inherit {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+}
+/* Login Page End */
+/* Profile Page start */
+#profile .profile-head, #editProfile .profile-head {
+  background-color: #373737;
+  border: medium none !important;
+}
+#profile .user_pic,
+#editProfile .user_pic,
+#panel_profilepic,
+#panel_profilepic2,
+#panel_profilepic3{
+  border-radius: 100%;
+  width: 120px !important;
+  height: 120px !important;
+}
+#profile .user_head{
+  padding: 35px 35px 0;
+}
+#editProfile .user_head {
+  padding: 30px;
+  text-align: center;
+}
+#profile .user_name, #editProfile .user_name {
+  color: #ffffff;
+  font-weight: lighter;
+  margin: 0 3px;
+  text-shadow: none;
+}
+.view_pro_de .ui-mini.ui-btn-icon-left:after,.view_pro_de .ui-mini .ui-btn-icon-left:after,.view_pro_de .ui-header .ui-btn-icon-left:after,.view_pro_de .ui-footer .ui-btn-icon-left:after{
+  left: 1.37em!important
+}
+.view_pro_de .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after{
+  background-color: #5F5855;
+}
+.view_pro_de.ui-listview>.ui-li-static{
+  padding: 1.7em 4em;
+  font-weight: lighter;
+}
+#profile .user_head{
+text-align:center;
+}
+/* Profile Page End */
+/* Edit Profile Start*/
+#profileForm .ui-shadow-inset{
+box-shadow:none;
+}
+/* Edit Profile End*/
+#events .ui-icon-gear::after {
+  background:none;
+  background-image: url("../img/Check-32.png");
+  height: 32px;
+  width: 32px;
+}
+#events .reject.ui-icon-gear::after {
+  background-image: url("../img/Delete-32.png");
+}
+#events .ui-listview > li.ui-li-has-alt > .ui-btn {
+  border-right-width: 0;
+  margin-right: 0;
+}
+
+#events  .eventaction.ui-btn-icon-notext::after, #events  .eventaction.ui-btn-icon-top::after, #events  .eventaction.ui-btn-icon-bottom::after {
+  left: 50%;
+  margin-left: -16px;
+}
+#events  .eventaction.ui-btn-icon-notext::after, #events  .eventaction.ui-btn-icon-left::after, #events  .eventaction.ui-btn-icon-right::after {
+  margin-top: -16px;
+  top: 50%;
+}
+#events .ui-listview > li.ui-li-has-alt > .ui-btn + .ui-btn {
+  border: 0 none;
+  box-sizing: border-box;
+  height: 36%;
+  margin: 0;
+  min-height: auto;
+  padding: 0;
+  position: absolute;
+  right: 45px;
+  top: 32px;
+  width: 2.5em;
+  z-index: 2;
+}
+/* Bio Start */
+#bio_view_list .bio_fb.ui-btn.ui-btn-icon-right.ui-icon-carat-r,
+#bio_view_list .bio_twt.ui-btn.ui-btn-icon-right.ui-icon-carat-r ,
+#bio_view_list .bio_web.ui-btn.ui-btn-icon-right.ui-icon-carat-r  {
+  font-size: 15px;
+  font-weight: lighter;
+}
+#bio_view_list .bio_fb .ui-li-icon,
+#bio_view_list .bio_twt .ui-li-icon,
+#bio_view_list .bio_web .ui-li-icon{
+  min-height: 24px;
+  min-width: 24px;
+  top: 8px;
+}
+#bio_view_list .ui-btn-icon-left::after,#bio_view_list .ui-btn-icon-right::after,#bio_view_list .ui-btn-icon-top::after,#bio_view_list .ui-btn-icon-bottom::after,#bio_view_list .ui-btn-icon-notext::after{
+content:none;
+}
+/* Bio end */
+/* Bio edit Start */
+#bio_count1, #bio_eq_count2, #bio_area_count3{
+text-align:right;
+}
+ #bioForm  #gender_selcet, #bioForm  #ex_select {
+  border-bottom: medium none;
+  padding: 0;
+}
+#bio #bio_bio,
+#bio #equipment,
+#bio #bio_areas,
+#eventDetails #event_typeE,
+#eventDetails #venue_addE,
+#diaryEventDetails #event_typeD,
+#diaryEventDetails #venue_addD{
+  text-align: justify;
+  white-space: normal;
+}
+#bio h2 {
+  font-weight: lighter !important;
+}
+#bioForm #gender_selcet .ui-popup.ui-body-inherit.ui-overlay-shadow.ui-corner-all,
+#bioForm #ex_select .ui-popup.ui-body-inherit.ui-overlay-shadow.ui-corner-all{
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+}
+/* Bio edit End */
+/* Panel Start*/
+.ui-panel {
+  background: #ffffff none repeat scroll 0 0!important;
+}
+.ui-panel-inner .ui-btn.ui-btn-icon-right.ui-icon-carat-r {
+  background: #ffffff none repeat scroll 0 0;
+  border: medium none;
+  color: #313131;
+  font-weight: lighter;
+  min-height: 1.5em;
+  padding-left: 3em;
+  text-shadow: none;
+}
+.ui-panel-inner .ui-btn-icon-right::after {
+  content: none;
+  right: 0.5625em;
+}
+.side_pro.ui-li-static.ui-body-inherit.ui-first-child {
+  padding: 0;
+}
+.panel_head.ui-title {
+  text-align: center !important;
+}
+.ui-panel-inner .user_name.ui-title {
+  font-weight: lighter;
+  margin: 0;
+  padding: 1px;
+}
+.panel_email.ui-title {
+  font-size: 13px !important;
+  font-weight: lighter;
+  margin: 0 !important;
+  padding: 5px !important;
+}
+.panel_head .user_pic {
+  width: 95px !important;
+  height: 95px !important;
+}
+.ui-panel-inner .jqm-header.panel_profile.ui-header.ui-bar-inherit {
+  padding: 6px 0;
+}
+.panel_icon{
+padding:10px;
+}
+.ui-panel-inner .jqm-header.panel_profile.ui-header.ui-bar-inherit {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+}
+.side_pro.ui-li-static.ui-body-inherit.ui-first-child {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../img/screen9.png") !important;
+  background-size: cover;
+}
+.header-logout.ui-link.ui-btn-right.ui-btn.ui-shadow.ui-corner-all {
+  border: medium none;
+  box-shadow: none;
+  opacity: 0.42;
+  padding: 1px 5px;
+}
+/* Panel End*/
+.invalidInput{
+border : 1px solid red!important;
+}
+#accept_DD_evnts,#accepted_DD_evnts {
+  background-color: #22aadd!important;
+}
+#reject_DD_evnt {
+  background-color: #e74c5a!important;
+}

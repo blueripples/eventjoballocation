@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Event Job Allocation</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/jqm-demos.css">
+    <link rel="stylesheet" href="css/responsive-calendar.css">
+    <link rel="stylesheet" href="css/bootstrapcustom.css">
+    <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/responsive-calendar.min.js"></script>
+    <script type="text/javascript" src="js/control.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.iscrollview.js"></script>
+
+
+</head>
+<body onload="init()" style="background:#000!important;">
+
+<!-- Login Start -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="loginPage">
+    <div role="main" class="ui-content" style="margin-top:20%;">
+        <!-- test -->
+        <div data-role="header" class="ui-header login_icon" role="banner">
+            <h2 class="ui-title" role="heading" aria-level="1"><img src="img/logo_in.png" alt="Icon"></h2>
+        </div>
+
+        <!-- test -->
+        <form id="loginForm">
+            <div>
+                <input type="email" name="email" id="email" value="" placeholder="email">
+            </div>
+            <div>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+            </div>
+            <button type="submit" class="ui-btn" id="loginButton">Login</button>
+        </form>
+        <p class="forgot_link"><a href="#verificationpage" data-ajax="true" class="ui-link" data-transition="slide">Forgot password?</a></p>
+        <p class="signup_text" style="">Not registered yet? <a href="#registrationPage" data-ajax="true" class="ui-link" data-transition="slide">Signup</a> Now.</p>
+    </div>
+</div> <!--Login End-->
+
+<!-- Registration Start -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="registrationPage">
+    <header data-role="header">
+        <a style="opacity: 1; background: transparent none repeat scroll 0% 0%; border: 0px none; padding: 3px;" data-direction="reverse" data-transition="slide" data-rel="back" data-iconpos="left" href="#" class="ui-btn-left ui-btn ui-icon-carat-l ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button"></a>
+    </header>
+    <div role="main" class="ui-content" style="margin-top:20%;">
+        <form id="registrationForm">
+            <div>
+                <input type="text" name="name" id="name" value="" placeholder="Name">
+            </div>
+            <div>
+                <input type="email" name="email" id="email" value="" placeholder="email">
+            </div>
+            <div>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="Password">
+            </div>
+            <div>
+                <input type="password" name="re-password" id="re-password" value="" autocomplete="off" placeholder="Re-type Password">
+            </div>
+            <button type="submit" class="ui-btn" id="submitButton">Register</button>
+            <span id="message"></span>
+        </form>
+    </div>
+</div><!-- Registration End -->
+
+<!-- verification mail Start -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="verificationpage">
+    <header data-role="header">
+        <a style="opacity: 1; background: transparent none repeat scroll 0% 0%; border: 0px none; padding: 3px;" data-direction="reverse" data-transition="slide" data-rel="back" data-iconpos="left" href="#" class="ui-btn-left ui-btn ui-icon-carat-l ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button"></a>
+    </header>
+    <div role="main" class="ui-content" style="margin-top:20%;">
+        <form id="verificationForm">
+            <div data-role="" class="help_text">Enter your registered email to get the verification code.</div>
+            <div>
+                <input type="email" name="email" id="email" value="" placeholder="Enter your registered email">
+            </div>
+            <button type="submit" class="ui-btn" id="getcodeButton">Get Code</button>
+        </form>
+    </div>
+</div><!-- verification mail end -->
+
+<!-- verification code Start -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="verificationCodepage">
+    <div role="main" class="ui-content" style="margin-top:20%;">
+        <form id="verificationCodeForm">
+
+            <div>
+                <input type="text" name="vcode" id="vcode" value="" placeholder="Enter your verification code">
+            </div>
+            <button type="submit" class="ui-btn" id="confirmCodeButton">Verify</button>
+        </form>
+    </div>
+</div><!-- verification mail end -->
+
+<!-- Forgot password start -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="forgotPasswordpage">
+    <div role="main" class="ui-content" style="margin-top:20%;">
+        <form id="forgotForm">
+            <!--<div>
+                <input type="email" name="email" id="email" value="" placeholder="email">
+            </div>-->
+            <div>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="New Password">
+            </div>
+            <div>
+                <input type="password" name="password" id="re-password" value="" autocomplete="off" placeholder="Re-type New Password">
+            </div>
+            <button type="submit" class="ui-btn" id="forgotButton">Reset</button>
+        </form>
+    </div>
+</div><!-- Forgot password end -->
+
+<!-- logged in home start -->
+
+<div data-role="page" class="jqm-demos pull-demo-page" data-quicklinks="true"  id="mydiary">
+    <div class="jqm-header ui-header ui-bar-inherit" data-role="header" role="banner" data-position="fixed">
+        <h2 class="ui-title" role="heading" aria-level="1"><a title="jQuery Mobile Demos home" href="#" class="ui-link"><h4 style="margin: 7px 0px; font-weight: lighter;">Event job allocation</h4></a></h2>
+        <a class="ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" href="#panel1" data-role="button" role="button"></a>
+        <a class="header-logout" href="#" data-role="" role=""><img src="img/logoutWhite.png"></a>
+    </div>
+    <div data-role="panel" class="" data-position="left" data-display="overlay" data-theme="b" id="panel1">
+        <ul data-role="listview">
+            <li class="side_pro">
+                <div data-role="header" class="jqm-header panel_profile">
+                    <h2 class="panel_head"><a href="#profile"><img id="panel_profilepic" class="panel_profilepic user_pic" src="" alt="User pic" ></a><h3 class="panel_user user_name"></h3><h3 class="panel_email"></h3></h2>
+                </div><!-- /header -->
+            </li>
+            <li ><a href="#profile"><img class="panel_icon" src="img/pro.png">My Profile</a></li>
+            <li ><a href="#bio"><img class="panel_icon" src="img/bio.png">Bio</a></li>
+            <li ><a href="#avmarker"><img class="panel_icon" src="img/avm.png">Availability marker</a></li>
+            <li ><a href="#aboutapp"><img class="panel_icon" src="img/abap.png">About app</a></li>
+            <li ><a href="#terms"><img class="panel_icon" src="img/t&c.png">Terms & Conditions</a></li>
+            <li ><a href="#" class="logout"><img class="panel_icon" src="img/logout9.png">Logout</a></li>
+
+        </ul>
+    </div><!-- /panel -->
+    <div>
+        <div data-iscroll="">
+			<div class="iscroll-pulldown">
+			<span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span>
+			</div>
+            <ul data-role="listview" data-filter="true" id="mydairy_list">
+			
+            </ul>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#mydiary" data-role="tab" data-icon="star" class="ui-btn-active ui-state-persist">My Jobs</a></li>
+                <li><a href="#events" data-role="tab" data-icon="calendar">Job Centre</a></li>
+                <li><a href="#avmarker" data-role="tab" data-icon="info">Diary</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<div data-role="page" class="jqm-demos pull-demo-page" data-quicklinks="true" id="events">
+    <div class="jqm-header ui-header ui-bar-inherit" data-role="header" role="banner" data-position="fixed">
+        <h2 class="ui-title" role="heading" aria-level="1"><a title="jQuery Mobile Demos home" href="#" class="ui-link"><h4 style="margin: 7px 0px; font-weight: lighter;">Event job allocation</h4></a></h2>
+        <a class="ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" href="#panel2" data-role="button" role="button"></a>
+        <a class="header-logout" href="#"><img src="img/logoutWhite.png"></a>
+    </div>
+    <div data-role="panel" class="" data-position="left" data-display="overlay" data-theme="b" id="panel2">
+        <ul data-role="listview">
+            <li class="side_pro">
+                <div data-role="header" class="jqm-header panel_profile">
+                    <h2 class="panel_head"><a href="#profile"><img id="panel_profilepic2" class="panel_profilepic user_pic" src="" alt="User pic" ></a><h3 class="panel_user user_name"></h3><h3 class="panel_email"></h3></h2>
+                </div><!-- /header -->
+            </li>
+            <li ><a href="#profile"><img class="panel_icon" src="img/pro.png">My Profile</a></li>
+            <li ><a href="#bio"><img class="panel_icon" src="img/bio.png">Bio</a></li>
+            <li ><a href="#avmarker"><img class="panel_icon" src="img/avm.png">Availability marker</a></li>
+            <li ><a href="#aboutapp"><img class="panel_icon" src="img/abap.png">About app</a></li>
+            <li ><a href="#terms"><img class="panel_icon" src="img/t&c.png">Terms & Conditions</a></li>
+            <li ><a href="#" class="logout"><img class="panel_icon" src="img/logout9.png">Logout</a></li>
+
+        </ul>
+    </div><!-- /panel -->
+    <div>
+        <div data-iscroll="">
+			<div class="iscroll-pulldown">
+			<span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span>
+			</div>
+            <ul data-role="listview" data-filter="true" id="events_list">
+			
+
+            </ul>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#mydiary" data-role="tab" data-icon="star">My Jobs</a></li>
+                <li><a href="#events" data-role="tab" data-icon="calendar" class="ui-btn-active ui-state-persist">Job Centre</a></li>
+                <li><a href="#avmarker" data-role="tab" data-icon="info">Diary</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Availability Marker -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="avmarker">
+
+    <div class="jqm-header ui-header ui-bar-inherit" data-role="header" role="banner" data-position="fixed">
+        <h2 class="ui-title" role="heading" aria-level="1"><a title="jQuery Mobile Demos home" href="#" class="ui-link"><h4 style="margin: 7px 0px; font-weight: lighter;">Event job allocation</h4></a></h2>
+        <a class="ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" href="#panel3" data-role="button" role="button"></a>
+        <a class="header-logout" href="#" data-role="" role=""><img src="img/logoutWhite.png"></a>
+    </div>
+    <div data-role="panel" class="" data-position="left" data-display="overlay" data-theme="b" id="panel3">
+        <ul data-role="listview">
+            <li class="side_pro">
+                <div data-role="header" class="jqm-header panel_profile">
+                    <h2 class="panel_head"><a href="#profile"><img id="panel_profilepic3" class="panel_profilepic user_pic" src="" alt="User pic" ></a><h3 class="panel_user user_name"></h3><h3 class="panel_email"></h3></h2>
+                </div><!-- /header -->
+            </li>
+            <li ><a href="#profile"><img class="panel_icon" src="img/pro.png">My Profile</a></li>
+            <li ><a href="#bio"><img class="panel_icon" src="img/bio.png">Bio</a></li>
+            <li ><a href="#avmarker"><img class="panel_icon" src="img/avm.png">Availability marker</a></li>
+            <li ><a href="#aboutapp"><img class="panel_icon" src="img/abap.png">About app</a></li>
+            <li ><a href="#terms"><img class="panel_icon" src="img/t&c.png">Terms & Conditions</a></li>
+            <li ><a href="#" class="logout"><img class="panel_icon" src="img/logout9.png">Logout</a></li>
+
+        </ul>
+    </div><!-- /panel -->
+    <div class="">
+        <!-- Responsive calendar - START -->
+        <div class="responsive-calendar">
+            <div class="controls">
+                <a class="pull-left" data-go="prev" style="margin-left:10px;"><img style="width:14px;" src="img/prev.png"></a>
+                <h4><span data-head-year></span> <span data-head-month></span></h4>
+                <a class="pull-right" data-go="next" style="margin-right:10px;"><img style="width:14px" src="img/next.png"></a>
+            </div><hr/>
+            <div class="day-headers">
+                <div class="day header">Mon</div>
+                <div class="day header">Tue</div>
+                <div class="day header">Wed</div>
+                <div class="day header">Thu</div>
+                <div class="day header">Fri</div>
+                <div class="day header">Sat</div>
+                <div class="day header">Sun</div>
+            </div>
+            <div class="days" data-group="days">
+
+            </div>
+        </div>
+        <!-- Responsive calendar - END -->
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#mydiary" data-role="tab" data-icon="star">My Jobs</a></li>
+                <li><a href="#events" data-role="tab" data-icon="calendar">Job Centre</a></li>
+                <li><a href="#avmarker" data-role="tab" data-icon="info" class="ui-btn-active ui-state-persist">Diary</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- logged in home end  -->
+
+<!-- Diary event details -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="diaryEventDetails">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a id="back_to_evnts" class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#events" data-iconpos="left"  data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1 id="eventHead">Events Details</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li>Event type : <span id="event_typeD"></span></li>
+            <li>Customer Name : <span id="cus_nameD"></span></li>
+            <li>Phone : <span id="phoneD"></span></li>
+            <li>Event Date: <span id="event_dateD"></span></li>
+            <li>Venue Address : <span id="venue_addD"></span></li>
+            <li>Post code : <span id="postcodeD"></span></li>
+            <li>Start Time : <span id="event_startD"></span></li>
+            <li>End Time : <span id="event_endD"></span></li>
+            <li>Price  : £<span id="event_priceD"></span></li>
+            <li>Notes : <span id="event_notesD"></span></li>
+
+        </ul>
+
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="b" style="text-align:center;" id="devts_footer">
+        <button id="accept_DD_evnts" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">Accept</button>
+        <button id="accepted_DD_evnts" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all" style="display:none;">Accepted</button>
+        <button id="reject_DD_evnt" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all">Reject</button>
+    </div>
+</div>
+
+
+<!-- Event Details -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="eventDetails">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#mydiary" data-iconpos="left"  data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1 id="eventHeadE">Events Details</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li>Event type : <span id="event_typeE"></span></li>
+            <li>Customer Name : <span id="cus_nameE"></span></li>
+            <li>Phone : <span id="phoneE"></span></li>
+            <li>Event Date: <span id="event_dateE"></span></li>
+            <li>Venue Address : <span id="venue_addE"></span></li>
+            <li>Post code : <span id="postcodeE"></span></li>
+            <li>Start Time : <span id="event_startE"></span></li>
+            <li>End Time : <span id="event_endE"></span></li>
+            <li>Price : £<span id="event_priceE"></span></li>
+            <li>Notes : <span id="event_notesE"></span></li>
+
+        </ul>
+    </div>
+
+</div>
+<!-- My Profile -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="profile">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>My Profile</h1>
+        <a href="#editProfile" class="ui-btn ui-btn-icon-notext ui-corner-all ui-icon-edit ui-nodisc-icon ui-alt-icon ui-btn-right">Edit</a>
+    </div>
+    <div data-role="header" class="jqm-header profile-head">
+        <h2 class="user_head"><a href="#"><img id="main_profilepic" class="user_pic" src="img/avatar1.png" alt="User pic" ></a><h3 class="user_name"></h3></h2>
+    </div><!-- /header -->
+
+    <ul data-role="listview" class="view_pro_de">
+        <li class="ui-icon-mail ui-btn-icon-left" id="proemail"></li>
+        <li class="ui-icon-phone ui-btn-icon-left" id="prophone"></li>
+        <li class="ui-icon-user ui-btn-icon-left" id="probio"><a href="#bio" style="font-weight: lighter; padding: 25px 4px 25px 65px;">Bio data</a></li>
+        <li id="deactivate_accnt" class="ui-icon-delete ui-btn-icon-left">Deactivate my Account</li>
+    </ul>
+</div>
+
+<!-- My Profile -->
+
+<!-- My Profile Edit Page -->
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="editProfile">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#profile"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>Edit Profile</h1>
+    </div>
+    <div data-role="header" class="jqm-header profile-head">
+        <h2 class="user_head"><a id="imagepicker" href="#"><img id="avatar" class="user_pic" src="" alt="User pic" style="border-radius:100%;"></a></h2>
+
+    </div><!-- /header -->
+    <form id="profileForm" class="ui-content">
+        <div>
+            <input type="text" name="name" id="name"  placeholder="Name">
+        </div>
+        <div>
+            <input type="email" name="email" id="email"  placeholder="email">
+        </div>
+        <div>
+            <input type="text" name="phone" id="phone"  autocomplete="off" placeholder="Add Phone number">
+        </div>
+
+        <button type="submit" class="ui-btn" id="profileSubmit">Update</button>
+
+
+    </form>
+</div>
+
+<!-- Bio -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="bio">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>Bio Data</h1>
+        <a href="#editBio" class="ui-btn ui-btn-icon-notext ui-corner-all ui-icon-edit ui-nodisc-icon ui-alt-icon ui-btn-right">Edit</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="bio_view_list">
+            <li class="bio_li"><h2> Full name &nbsp;&nbsp; : <span id="bio_name"> </span></h2></li>
+            <li class="bio_li"><h2> Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="bio_gender">  </span></h2></li>
+            <li class="bio_li"><h2> Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="bio_location">  </span></h2></li>
+            <li class="bio_li"><h2> Experience&nbsp;: <span id="bio_exper">  </span> </h2></li>
+            <li class="bio_li"><h2>Bio</h2><p id="bio_bio"></p></li>
+            <li class="bio_li"><h2>Equipment</h2><p id="equipment"></p></li>
+            <li class="bio_li"><h2>Areas cover</h2><p id="bio_areas"></p></li>
+
+            <li><a href="https://www.facebook.com/" class="bio_fb"><img src="img/Facebook-24.png" alt="facebook" class="ui-li-icon"><span id="fb_linkv"></span></a></li>
+            <li><a href="https://twitter.com/" class="bio_twt"><img src="img/Twitter-Bird-24.png" alt="Twitter" class="ui-li-icon"><span id="twt_linkv"></span></a></li>
+            <li><a href="#" class="bio_web"><img src="img/Web-24.png" alt="Website" class="ui-li-icon"><span id="web_linkv"></span></a></li>
+
+        </ul>
+
+
+    </div>
+
+</div>
+<!-- Bio Edit start -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="editBio">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#bio"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>Edit Bio data</h1>
+    </div>
+
+    <form id="bioForm" class="ui-content">
+        <div>
+            <input type="text" name="fname" id="fname"  placeholder="First Name" required>
+        </div>
+        <div>
+            <input type="text" name="lname" id="lname"  placeholder="Last Name" required>
+        </div>
+
+        <div data-role="fieldcontain" id="gender_selcet">
+            <select name="select-choice-1" id="select-choice-1" data-native-menu="false" data-role="popup" >
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">female</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="text" name="location" id="location"  placeholder="Location" required>
+        </div>
+        <div data-role="fieldcontain" id="ex_select">
+            <select name="select-choice-2" id="select-choice-2" data-native-menu="false" data-role="popup" >
+                <option value="">Experience</option>
+                <option value="1 Year">1 Year</option>
+                <option value="2 Years">2 Years</option>
+                <option value="3 Years">3 Years</option>
+                <option value="4 Years">4 Years</option>
+                <option value="5 Years">5 Years</option>
+                <option value="More than 5 Years">More than 5 Years</option>
+            </select>
+        </div>
+        <div>
+            <textarea name="bio" id="bio_text"  maxlength="200" placeholder="Bio..."></textarea>
+            <div id="bio_count1"></div>
+        </div>
+        <div>
+            <textarea id="bio_eq_text" name="equipment"  maxlength="200" placeholder="Equipment..."></textarea>
+            <div id="bio_eq_count2"></div>
+        </div>
+        <div>
+            <textarea id="bio_areas_text" name="areascover" maxlength="200" placeholder="Areas you can cover..."></textarea>
+            <div id="bio_area_count3"></div>
+        </div>
+        <div>
+            <input type="text" name="facebook" id="fb_link"  placeholder="https://www.facebook.com/"">
+        </div>
+        <div>
+            <input type="text" name="twitter" id="twt_link"  placeholder="https://twitter.com/">
+        </div>
+        <div>
+            <input type="text" name="website" id="wetsite_link"  placeholder="https://yourwebsite.com/">
+        </div>
+        <a class="ui-btn" id="fileAttachBtn">upload images</a>
+        <div id="imagesPreview"></div>
+        <button type="submit" class="ui-btn" id="bioSubmit">Update</button>
+
+
+    </form>
+</div>
+<!-- Bio Edit end -->
+
+<!-- About App -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="aboutapp">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>About the App</h1>
+    </div>
+    <div data-role="content">
+        <h3 style="font-weight: lighter;">Event Job Allocation</h3>
+        <p style="text-align:justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+
+</div>
+<!-- Terms & Conditions -->
+<div data-role="page" class="jqm-demos" data-quicklinks="true" id="terms">
+
+    <div data-role="header" data-position="fixed" class="jqm-header" >
+        <a class="ui-btn ui-icon-carat-l ui-shadow ui-corner-all ui-btn-icon-notext" href="#"  data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse" style="opacity:1;"></a>
+        <h1>Terms & Conditions</h1>
+    </div>
+    <div data-role="content">
+        <h3 style="font-weight: lighter;">Lorem Ipsum</h3>
+        <p style="text-align:justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic </p>
+        <h3 style="font-weight: lighter;">Lorem Ipsum</h3>
+        <p style="text-align:justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic </p>
+    </div>
+
+</div>
+<script>
+$("a[data-role=tab]").each(function () {
+    var anchor = $(this);
+    anchor.bind("click", function () {
+        $.mobile.changePage(anchor.attr("href"), {
+            transition: "none",
+            changeHash: false
+        });
+        return false;
+    });
+});
+
+$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
+    $.mobile.silentScroll(0);
+    $.mobile.changePage.defaults.transition = 'slide';
+});
+
+
+    var text_max = 200;
+	var int_text1 = (text_max - $('#bio_text').val().length);
+	var int_text2 = (text_max - $('#bio_eq_text').val().length);
+	var int_text3 = (text_max - $('#bio_areas_text').val().length);
+    $('#bio_count1').html(int_text1 +' /200');
+    $('#bio_eq_count2').html(int_text2 +' /200');
+    $('#bio_area_count3').html(int_text3 +' /200');
+
+    $('#bio_text').keyup(function() {
+        var text_length = $('#bio_text').val().length;
+        var text_remaining = text_max - text_length;
+		$('#bio_count1').html(text_remaining + ' /200');
+		if($('#bio_text').val()==''){
+			$('#bio_count1').html('200/200');
+		}
+    });
+
+	$('#bio_eq_text').keyup(function() {
+        var text_length = $('#bio_eq_text').val().length;
+        var text_remaining = text_max - text_length;
+		$('#bio_eq_count2').html(text_remaining  + ' /200');
+		if($('#bio_eq_text').val()==''){
+			$('#bio_eq_count2').html('200/200');
+		}
+    });
+
+	$('#bio_areas_text').keyup(function() {
+        var text_length = $('#bio_areas_text').val().length;
+        var text_remaining = text_max - text_length;
+		$('#bio_area_count3').html(text_remaining  + ' /200');
+		if($('#bio_areas_text').val()==''){
+			$('#bio_area_count3').html('200/200');
+		}
+    });
+$(".responsive-calendar").responsiveCalendar({});
+
+
+</script>
+</body>
+</html>

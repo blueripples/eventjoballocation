@@ -1,0 +1,29 @@
+{
+    "version": "0.4.0",
+    "name": "com.telerik.plugins.nativepagetransitions",
+    "cordova_name": "Native Page Transitions",
+    "description": "\n    Slide out the current page to reveal the next one. By a native transitions.\n  ",
+    "license": "MIT",
+    "repo": "https://github.com/Telerik-Verified-Plugins/NativePageTransitions.git",
+    "issue": "https://github.com/Telerik-Verified-Plugins/NativePageTransitions/issues",
+    "keywords": [
+        "Native transitions",
+        "Native page transitions",
+        "Slide",
+        "Flip",
+        "Drawer",
+        "Menu",
+        "Curl"
+    ],
+    "platforms": [
+        "ios",
+        "android",
+        "wp8"
+    ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.0.0"
+        }
+    ]
+}
